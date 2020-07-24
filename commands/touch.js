@@ -11,12 +11,14 @@ module.exports = {
           message.guild.channels.create(messageArray[2], {
             type: "text"
           })
-
+          return;
         } else if (messageArray[3] ==="voice") {
           message.guild.channels.create(messageArray[2], {
             type: "voice"
           })
+          return;
         } else {message.channel.send('invalid arguments.')};
+        return;
       }
     }
   }
