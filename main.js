@@ -42,36 +42,25 @@ client.on('message', message =>{
         case "su":
             client.commands.get('su').execute(message);
               break;
-
-        case "mkdir":
-            client.commands.get("mkdir").execute(message, argOne)
+        case "kick":
+            client.commands.get('kick').execute(message, messageArray, guild);
                 break;
-        case "role":
-            if (message.member.roles.cache.find(r => r.name === "admin")) {
-                if (argOne==="add") {
-                  if (!message.guild.roles.cache.find(r => r.name === argTwo)){
-                    message.channel.send('this role doesnt exist')
-                    break;
-                  }
-
-
-                }else if (argOne==="remove") {
-                  message.channel.send('valid command recognised.');
-                  if(!message.member.roles.cache.find(r => r.name === argTwo)){
-                    message.channel.send('this user has no role')
-                  }
-                      break;
-                }else{
-                    message.channel.send('something went wrong')
-                };
-            }else{
-                message.channel.send("u no root")
-            }
+        case "rm":
+            client.commands.get('rm').execute(message, messageArray, message.guild);
+                break;
+        case "mkdir":
+            client.commands.get('mkdir').execute(message, messageArray, message.guild);
+              break;
         case "touch":
-          client.commands.get('touch').execute(message, messageArray, message.guild)
-          break;
+            client.commands.get('touch').execute(message, messageArray, message.guild);
+              break;
+        case "role":
+            client.commands.get('role').execute(message, messageArray, message.guild);
+              break;
+        
         default:
-            return
+            message.channel.send('syntax error.');
+            return;
     }
 });
 
