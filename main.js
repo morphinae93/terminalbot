@@ -13,8 +13,6 @@ client.commands = new Discord.Collection();
 
 module.exports = {client}
 
-const ytdl = require('ytdl-core');
-
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
 
 for (const file of commandFiles){
