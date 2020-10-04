@@ -1,6 +1,6 @@
 module.exports = {
     name: 'touch',
-    description: "This gives this creates a channel",
+    description: "This creates a channel",
     execute(message, messageArray, guild) {
       if (message.member.roles.cache.find(r => r.name === "root") && messageArray[1] === 'touch') {
         if (!messageArray[2].length){
